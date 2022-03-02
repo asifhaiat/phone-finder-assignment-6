@@ -32,3 +32,10 @@ const displayPhone = (data) => {
       searchPhone.appendChild(div);
   });
   };
+// load phone details
+const LoadPhoneDetails = (phoneId) => {
+    const url = `https:openapi.programming-hero.com/api/phone/${phoneId}`;
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => phoneDetails(data.data));
+    };
