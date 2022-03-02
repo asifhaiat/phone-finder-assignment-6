@@ -39,3 +39,24 @@ const LoadPhoneDetails = (phoneId) => {
         .then((res) => res.json())
         .then((data) => phoneDetails(data.data));
     };
+// phone details
+const phoneDetails = (phone) => {
+    // console.log(phone);
+  const detailsPhone = document.getElementById("details-phone");
+  const div = document.createElement("div");
+  div.classList.add("card");
+  div.innerHTML = `
+      <img src ="${phone.image}" class="card-img-top" alt="...">
+      <div class="card-body">
+      <h5 class="card-title">${phone.name}</h5>
+      <p class="card-text">${phone.brand}</p>
+      <p class="card-text">Release Date: ${phone.releaseDate}</p>
+      <p class="card-text"> ${phone.mainFeatures.memory}</p>
+      <p class="card-text"> ${phone.mainFeatures.displaySize}</p>
+      <p class="card-text"> ID: ${phone.slug}</p>
+  
+      </div>
+  
+      `;
+  detailsPhone.appendChild(div);
+  };
